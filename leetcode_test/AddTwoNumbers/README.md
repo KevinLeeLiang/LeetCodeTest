@@ -41,7 +41,8 @@ type struct link{
 由于分散存储，为了能够体现出数据元素之间的逻辑关系，每个数据元素在存储的同时，要配备一个指针，用于指向它的直接后继元素，即每一个数据元素都指向下一个数据元素（最后一个指向NULL(空)）。  
   
 
-![](/uploads/allimg/170717/2-1FGGH922492.png)  
+![http://data.biancheng.net/uploads/allimg/170717/2-1FGGH922492.png](http://data.biancheng.net/uploads/allimg/170717/2-1FGGH922492.png)
+
 [图](http://data.biancheng.net/view/200.html)1 链式存储存放数据
 
   
@@ -56,13 +57,15 @@ type struct link{
 1. 本身的信息，称为“数据域”；
 2. 指向直接后继的指针，称为“指针域”。
 
-![](/uploads/allimg/170719/2-1FG9150JD34.png)  
+![http://data.biancheng.net/uploads/allimg/170719/2-1FG9150JD34.png](http://data.biancheng.net/uploads/allimg/170719/2-1FG9150JD34.png)
+  
 图2 结点的构成
 
 这两部分信息组成数据元素的存储结构，称之为“结点”。n个结点通过指针域相互链接，组成一个链表。  
   
 
-![](/uploads/allimg/170727/2-1FHG45629418.png)  
+![http://data.biancheng.net/uploads/allimg/170727/2-1FHG45629418.png](http://data.biancheng.net/uploads/allimg/170727/2-1FHG45629418.png)
+ 
 图3 含有n个结点的链表  
  
 
@@ -70,7 +73,6 @@ type struct link{
   
 链表中存放的不是基本数据类型，需要用结构体实现自定义：
 
-[复制](http://data.biancheng.net/view/5.html#)[纯文本](http://data.biancheng.net/view/5.html#)[复制](http://data.biancheng.net/view/5.html#)
 ```c++
 typedef struct Link{
     char elem;//代表数据域
@@ -95,7 +97,7 @@ typedef struct Link{
 头结点和头指针的区别：头指针是一个指针，头指针指向链表的头结点或者首元结点；头结点是一个实际存在的结点，它包含有数据域和指针域。两者在程序中的直接体现就是：头指针只声明而没有分配存储空间，头结点进行了声明并分配了一个结点的实际物理内存。
 
   
-![](/uploads/allimg/170719/2-1FG915025H28.png)
+![http://data.biancheng.net/uploads/allimg/170719/2-1FG915025H28.png](http://data.biancheng.net/uploads/allimg/170719/2-1FG915025H28.png)
 
 图 4 头结点、头指针和首元结点
 
@@ -149,7 +151,6 @@ int selectElem(link * p,int elem){
   
 实现代码：
 
-[复制](http://data.biancheng.net/view/5.html#)[纯文本](http://data.biancheng.net/view/5.html#)[复制](http://data.biancheng.net/view/5.html#)
 ```c++
 //更新函数，其中，add 表示更改结点在链表中的位置，newElem 为新的数据域的值
 link *amendElem(link * p,int add,int newElem){
@@ -171,7 +172,9 @@ link *amendElem(link * p,int add,int newElem){
 2. 插入到链表中间的某个位置；
 3. 插入到链表最末端；
 
-![](/uploads/allimg/170718/2-1FGQ0394c05.png)  
+
+![http://data.biancheng.net/uploads/allimg/170718/2-1FGQ0394c05.png](http://data.biancheng.net/uploads/allimg/170718/2-1FGQ0394c05.png) 
+
 图 5 链表中插入结点5
 
   
