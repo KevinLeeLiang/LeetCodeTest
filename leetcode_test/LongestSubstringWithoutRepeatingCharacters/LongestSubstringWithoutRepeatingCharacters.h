@@ -42,9 +42,15 @@ int	LongestSubstringWithoutRepeatingCharactersBySlidingWindowMethod(std::string 
 	const char* ptest = test.c_str();
 	int freq[256] = { 0 };
 	while (left < test.size()) {
-		if (right + 1 < test.size() && freq[int(ptest[right + 1 - (int)'a'])] == 0) {
-			//TODO:
+		if (right + 1 < test.size() && freq[int(ptest[right + 1]) - (int)'a'] == 0) {
+			freq[int(ptest[right + 1]) - (int)'a']++;
+			right++;
 		}
+		else {
+			freq[int(ptest[left]) - (int)'a']++;
+			left++;
+		}
+		result = std::max(result, right - left + 1);
 	}
 	return result;
 }
