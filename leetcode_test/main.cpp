@@ -81,10 +81,49 @@ void LongestSubstringWithoutRepeatingCharactersTest() {
 	std::cout << LongestSubstringWithoutRepeatingCharactersBySlidingWindowMethod(test) << std::endl;
 }
 
+/*
+4. Median of Two Sorted Arrays
+题⽬
+There are two sorted arrays nums1 and nums2 of size m and n respectively.
+Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+You may assume nums1 and nums2 cannot be both empty.
+Example 1:
+	nums1 = [1, 3]
+	nums2 = [2]
+	The median is 2.0
+
+Example 2:
+	nums1 = [1, 2]
+	nums2 = [3, 4]
+	The median is (2 + 3)/2 = 2.5
+*/
+#include "MedianOfTwoSortedArrays/MedianOfTwoSortedArrays.h"
+void MedianOfTwoSortedArrays() {
+	std::vector<int>nums1 = { 1,3 };
+	std::vector<int>nums2 = { 2,4 };
+	float result = FindMedianSortedArrays(nums1, nums2);
+	std::cout << "nums1: {";
+	for (int i = 0; i < nums1.size(); i++) {
+		std::cout << nums1.at(i);
+		if (i != nums1.size() - 1)
+			std::cout << ",";
+	}
+	std::cout << "}" << std::endl;
+	std::cout << "nums2: {";
+	for (int i = 0; i < nums2.size(); i++) {
+		std::cout << nums2.at(i);
+		if (i != nums2.size() - 1)
+			std::cout << ",";
+	}
+	std::cout << "}" << std::endl;
+	std::cout << "result:" << result << std::endl;
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
 	//AddTwoNumbersTest();
-	LongestSubstringWithoutRepeatingCharactersTest();
+	//LongestSubstringWithoutRepeatingCharactersTest();
+	MedianOfTwoSortedArrays();
 	return 0;			
 }
