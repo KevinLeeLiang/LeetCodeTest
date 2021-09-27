@@ -146,6 +146,7 @@ void ReverseIntergerTest() {
 }
 
 /*
+9.Palindrome Number
 题⽬
 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the
 same backward as forward.
@@ -177,6 +178,26 @@ void PalindromeNumberTest() {
 		std::cout << "false" << std::endl;
 }
 
+/*
+11.Container With Most Water
+题⽬
+Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n
+vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines,
+which together with x-axis forms a container, such that the container contains the most water.
+Note: You may not slant the container and n is at least 2.
+The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of
+water (blue section) the container can contain is 49.
+Example 1:
+Input: [1,8,6,2,5,4,8,3,7]
+Output: 49
+*/
+#include "ContainerWithMostWater/ContainerWithMostWater.h"
+void ContainerWithMostWaterTest() {
+	std::vector<int>test = { 1,8,6,2,5,4,8,3,7 };
+	std::cout << ContainerWithMostWater(test) << std::endl;
+}
+
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -184,6 +205,7 @@ int main() {
 	//LongestSubstringWithoutRepeatingCharactersTest();
 	//MedianOfTwoSortedArrays();
 	//ReverseIntergerTest();
-	PalindromeNumberTest();
+	//PalindromeNumberTest();
+	ContainerWithMostWaterTest();
 	return 0;			
 }
