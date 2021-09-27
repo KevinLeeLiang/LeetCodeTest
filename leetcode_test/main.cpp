@@ -145,12 +145,45 @@ void ReverseIntergerTest() {
 	std::cout << ReverseInterger(test) << std::endl;
 }
 
+/*
+题⽬
+Determine whether an integer is a palindrome. An integer is a palindrome when it reads the
+same backward as forward.
+Example 1:
+Input: 121
+Output: true
+Example 2:
+Input: -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes
+121-. Therefore it is not a palindrome.
+Example 3:
+Input: 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+*/
+#include"PalindromeNumber/PalindromeNumber.h"
+void PalindromeNumberTest() {
+	int test = -121;
+	if (PalindromeNumber1(test)) {
+		std::cout << "true" << std::endl;
+	}
+	else
+		std::cout << "false" << std::endl;
+	if (PalindromeNumber2(test)) {
+		std::cout << "true" << std::endl;
+	}
+	else
+		std::cout << "false" << std::endl;
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
 	//AddTwoNumbersTest();
 	//LongestSubstringWithoutRepeatingCharactersTest();
 	//MedianOfTwoSortedArrays();
-	ReverseIntergerTest();
+	//ReverseIntergerTest();
+	PalindromeNumberTest();
 	return 0;			
 }
