@@ -197,6 +197,11 @@ void ContainerWithMostWaterTest() {
 	std::cout << ContainerWithMostWater(test) << std::endl;
 }
 
+#include "RomanToInteger/RomanToInteger.h"
+void RomanToIntegerTest() {
+	std::string s = "MCMXCIV";
+	std::cout << RomanToInteger(s) << std::endl;
+}
 
 int main() {
 	std::cout << "Hello World!" << std::endl;
@@ -206,6 +211,7 @@ int main() {
 	//MedianOfTwoSortedArrays();
 	//ReverseIntergerTest();
 	//PalindromeNumberTest();
-	ContainerWithMostWaterTest();
+	//ContainerWithMostWaterTest();
+	RomanToIntegerTest();
 	return 0;			
 }

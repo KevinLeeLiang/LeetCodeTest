@@ -1,2 +1,6 @@
+.vs
 vsPro-LeetCodeTest
 Debug
+leetcode_test/leetcode_test.aps
+leetcode_test/leetcode_test.rc
+leetcode_test/leetcode_test.vcxproj
