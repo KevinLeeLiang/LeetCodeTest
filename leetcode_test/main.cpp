@@ -202,6 +202,43 @@ void RomanToIntegerTest() {
 	std::string s = "MCMXCIV";
 	std::cout << RomanToInteger(s) << std::endl;
 }
+/*
+15. 3Sum
+题⽬
+Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find
+all unique triplets in the array which gives the sum of zero.
+Note:
+The solution set must not contain duplicate triplets.
+Example:
+Given array nums = [-1, 0, 1, 2, -1, -4],
+A solution set is:
+[
+ [-1, 0, 1],
+ [-1, -1, 2]
+]
+*/
+#include "3Sum/3Sum.h"
+void ThreeSumTest() {
+	std::vector<int>test = { -1, 0, 1, 2, -1, -4 };
+	std::vector<std::vector<int>>res = ThreeSum(test);
+	if (res.size() == 0){
+		std::cout << "No Solution" << std::endl;
+		return;
+	}
+	else {
+		for (int i = 0; i < res.size(); i++) {
+			std::cout << "[";
+			for (int j = 0; j < res.at(i).size(); j++) {
+				if (j == res.at(i).size() - 1) {
+					std::cout << res.at(i).at(j);
+				}
+				else
+					std::cout << res.at(i).at(j) << ",";
+			}
+			std::cout << "]" << std::endl;
+		}
+	}
+}
 
 int main() {
 	std::cout << "Hello World!" << std::endl;
@@ -212,6 +249,7 @@ int main() {
 	//ReverseIntergerTest();
 	//PalindromeNumberTest();
 	//ContainerWithMostWaterTest();
-	RomanToIntegerTest();
+	//RomanToIntegerTest();
+	ThreeSumTest();
 	return 0;			
 }
