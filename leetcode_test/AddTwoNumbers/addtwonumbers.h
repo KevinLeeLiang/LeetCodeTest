@@ -95,14 +95,8 @@ link* AddTwoNumbers(link* p, link* q) {
   while (p != NULL && q != NULL) {
     int p_elem = 0;
     int q_elem = 0;
-    if (p != NULL)
-      p_elem = p->elem;
-    else
-      p_elem = 0;
-    if (q != NULL)
-      q_elem = q->elem;
-    else
-      q_elem = 0;
+    p_elem = p->elem;
+    q_elem = q->elem;
     p = p->next;
     q = q->next;
     temp = p_elem + q_elem;
