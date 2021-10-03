@@ -282,8 +282,37 @@ void ThreeSumClosestTest() {
 	}
 }
 
-void LetterCombinationsOfAPhoneNumber() {
-
+/*
+17. Letter Combinations of a Phone Number
+题⽬
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that
+the number could represent.
+A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does
+not map to any letters
+Example:
+Input: "23"
+	Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+Note:
+Although the above answer is in lexicographical order, your answer could be in any order you
+want.
+题⽬⼤意
+给定⼀个仅包含数字 2-9 的字符串，返回所有它能表示的字⺟组合。给出数字到字⺟的映射如下（与电
+话按键相同）。注意 1 不对应任何字⺟。
+解题思路
+DFS 递归深搜即可
+*/ 
+#include"LetterCombinationsOfAPhoneNumber/LetterCombinationsOfAPhoneNumber.h"
+void LetterCombinationsOfAPhoneNumberTest() {
+	LetterCombinationOfAPhoneNumber letter_combination;
+	std::vector<std::string> result = letter_combination.LetterCombinations("23");
+	std::cout << "{";
+	for (size_t i = 0; i < result.size(); i++){
+		if (i != result.size() - 1)
+			std::cout << result.at(i) << ",";
+		else
+			std::cout << result.at(i);
+	}
+	std::cout << "}" << std::endl;
 }
 
 int main() {
@@ -297,6 +326,7 @@ int main() {
 	//ContainerWithMostWaterTest();
 	//RomanToIntegerTest();
 	//ThreeSumTest();
-	ThreeSumClosestTest();
+	//ThreeSumClosestTest();
+	LetterCombinationsOfAPhoneNumberTest();
 	return 0;			
 }
