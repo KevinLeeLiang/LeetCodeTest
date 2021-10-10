@@ -365,6 +365,40 @@ void FourSumTest() {
 	
 }
 
+/*
+19. Remove Nth Node From End of List
+题⽬
+Given a linked list, remove the n-th node from the end of list and return its head.
+Example:
+Given linked list: 1->2->3->4->5, and n = 2.
+After removing the second node from the end, the linked list becomes 1->2->3->5.
+题⽬⼤意
+删除链表中倒数第 n 个结点。
+解题思路
+这道题⽐较简单，先循环⼀次拿到链表的总⻓度，然后循环到要删除的结点的前⼀个结点开始删除操
+作。需要注意的⼀个特例是，有可能要删除头结点，要单独处理。
+这道题有⼀种特别简单的解法。设置 2 个指针，⼀个指针距离前⼀个指针 n 个距离。同时移动 2 个指
+针，2 个指针都移动相同的距离。当⼀个指针移动到了终点，那么前⼀个指针就是倒数第 n 个节点了。
+*/
+#include "RemoveNthNodeFromEndOfListTest/RemoveNthNodeFromEndOfList.h"
+void RemoveNthNodeFromEndOfListTest() {
+	struct Node* head = NULL;
+	head = create(head, 1);
+	head = create(head, 2);
+	head = create(head, 3);
+	head = create(head, 4);
+	head = create(head, 5);
+
+	int n = 2;
+
+	std::cout << "Linked list before modification: \n";
+	display(head);
+
+	head = removeNthFromEnd(head, 2);
+	std::cout << "Linked list after modification: \n";
+	display(head);
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -378,6 +412,7 @@ int main() {
 	//ThreeSumTest();
 	//ThreeSumClosestTest();
 	//LetterCombinationsOfAPhoneNumberTest();
-	FourSumTest();
+	//FourSumTest();
+	RemoveNthNodeFromEndOfListTest();
 	return 0;			
 }
