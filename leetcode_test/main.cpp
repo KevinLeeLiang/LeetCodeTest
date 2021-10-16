@@ -315,6 +315,182 @@ void LetterCombinationsOfAPhoneNumberTest() {
 	std::cout << "}" << std::endl;
 }
 
+
+/*
+18.4Sum
+题⽬
+Given an array nums of n integers and an integer target, are there elements a, b, c, and d in nums
+such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of
+target.
+Note:
+The solution set must not contain duplicate quadruplets.
+Example:
+Given array nums = [1, 0, -1, 0, -2, 2], and target = 0.
+A solution set is:
+[
+ [-1, 0, 0, 1],
+ [-2, -1, 1, 2],
+ [-2, 0, 0, 2]
+]
+题⽬⼤意
+给定⼀个数组，要求在这个数组中找出 4 个数之和为 0 的所有组合。
+解题思路
+⽤ map 提前计算好任意 3 个数字之和，保存起来，可以将时间复杂度降到 O(n^3)。这⼀题⽐较麻烦的
+⼀点在于，最后输出解的时候，要求输出不重复的解。数组中同⼀个数字可能出现多次，同⼀个数字也
+可能使⽤多次，但是最后输出解的时候，不能重复。例如 [-1，1，2, -2] 和 [2, -1, -2, 1]、[-2, 2, -1, 1] 这
+3 个解是重复的，即使 -1, -2 可能出现 100 次，每次使⽤的 -1, -2 的数组下标都是不同的。
+这⼀题是第 15 题的升级版，思路都是完全⼀致的。这⾥就需要去重和排序了。map 记录每个数字出现
+的次数，然后对 map 的 key 数组进⾏排序，最后在这个排序以后的数组⾥⾯扫，找到另外 3 个数字能
+和⾃⼰组成 0 的组合。
+第 15 题和第 18 题的解法⼀致。
+*/
+#include "4Sum/4Sum.h"
+void FourSumTest() {
+	std::vector<int>test = { 1, 0, -1, 0, -2, 2 };
+	FourSum four_sum;
+	std::vector<std::vector<int>>res = four_sum.fourSum(test, 0);
+	std::cout << "[ " << std::endl;
+	for ( size_t i = 0; i < res.size(); i++){
+		std::cout << "[ ";
+		for (size_t j = 0; j < res.at(i).size(); j++){
+			if (j < res.at(i).size() - 1){
+				std::cout << res.at(i).at(j) << ", ";
+			}
+			else
+				std::cout << res.at(i).at(j);
+		}
+		std::cout << " ]" << std::endl;
+	}
+	std::cout << "]" << std::endl;
+	
+}
+
+/*
+19. Remove Nth Node From End of List
+题⽬
+Given a linked list, remove the n-th node from the end of list and return its head.
+Example:
+Given linked list: 1->2->3->4->5, and n = 2.
+After removing the second node from the end, the linked list becomes 1->2->3->5.
+题⽬⼤意
+删除链表中倒数第 n 个结点。
+解题思路
+这道题⽐较简单，先循环⼀次拿到链表的总⻓度，然后循环到要删除的结点的前⼀个结点开始删除操
+作。需要注意的⼀个特例是，有可能要删除头结点，要单独处理。
+这道题有⼀种特别简单的解法。设置 2 个指针，⼀个指针距离前⼀个指针 n 个距离。同时移动 2 个指
+针，2 个指针都移动相同的距离。当⼀个指针移动到了终点，那么前⼀个指针就是倒数第 n 个节点了。
+*/
+#include "RemoveNthNodeFromEndOfListTest/RemoveNthNodeFromEndOfList.h"
+void RemoveNthNodeFromEndOfListTest() {
+	struct Node* head = NULL;
+	head = create(head, 1);
+	head = create(head, 2);
+	head = create(head, 3);
+	head = create(head, 4);
+	head = create(head, 5);
+
+	int n = 2;
+
+	std::cout << "Linked list before modification: \n";
+	display(head);
+
+	head = removeNthFromEnd(head, 2);
+	std::cout << "Linked list after modification: \n";
+	display(head);
+}
+/**
+20.Valid Parantheses
+题⽬
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
+valid.
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
+Example 1:
+	Input: "()"
+	Output: true
+Example 2:
+	Input: "()[]{}"
+	Output: true
+Example 3:
+	Input: "(]"
+	Output: false
+Example 4:
+	Input: "([)]"
+	Output: false
+Example 5:
+	Input: "{[]}"
+	Output: true
+题⽬⼤意
+括号匹配问题。
+解题思路
+遇到左括号就进栈push，遇到右括号并且栈顶为与之对应的左括号，就把栈顶元素出栈。最后看栈⾥⾯
+还有没有其他元素，如果为空，即匹配。
+需要注意，空字符串是满⾜括号匹配的，即输出 true。
+*/
+#include "ValidParatheses/isValid.h"
+void ValidParanthesesTest() {
+	std::string s = "{[]}";
+	bool res = isValid(s);
+	std::string sres = "false";
+	if (res)
+		sres = "true";
+	std::cout << "Input:" << s << std::endl;
+	std::cout << "Output:" << sres << std::endl;
+}
+
+/*
+21.Merge Two Sorted Lists
+题⽬
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing
+together the nodes of the first two lists.
+Example:
+	Input: 1->2->4, 1->3->4
+	Output: 1->1->2->3->4->4
+题⽬⼤意
+合并 2 个有序链表
+解题思路
+按照题意做即可。
+*/
+#include"MergeTwoSortedLists/MergeTwoSortedLists.h"
+void MergeTwoSortedListsTest() {
+	MergeTwoSortedLists::ListNode* l1, *l1_input;
+	l1 = new MergeTwoSortedLists::ListNode();
+	l1->val = 1;
+	l1->next = new MergeTwoSortedLists::ListNode();
+	l1_input = l1;
+	l1 = l1->next;
+	l1->val = 2;
+	l1->next = new MergeTwoSortedLists::ListNode();
+	l1 = l1->next;
+	l1->val = 4;
+	l1->next = nullptr;
+	MergeTwoSortedLists::ListNode* l2, *l2_input;
+	l2 = new MergeTwoSortedLists::ListNode();
+	l2->val = 1;
+	l2->next = new MergeTwoSortedLists::ListNode();
+	l2_input = l2;
+	l2 = l2->next;
+	l2->val = 3;
+	l2->next = new MergeTwoSortedLists::ListNode();
+	l2 = l2->next;
+	l2->val = 4;
+	l2->next = nullptr ;
+
+	MergeTwoSortedLists::ListNode* ptr_res = MergeTowLists(l1_input, l2_input);
+	while (ptr_res != nullptr) {
+		if (ptr_res->next == nullptr) {
+			std::cout << ptr_res->val << std::endl;
+			break;
+		}
+		else {
+			std::cout << ptr_res->val << "->";
+			ptr_res = ptr_res->next;
+		}
+	}
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -327,6 +503,10 @@ int main() {
 	//RomanToIntegerTest();
 	//ThreeSumTest();
 	//ThreeSumClosestTest();
-	LetterCombinationsOfAPhoneNumberTest();
+	//LetterCombinationsOfAPhoneNumberTest();
+	//FourSumTest();
+	//RemoveNthNodeFromEndOfListTest();
+	//ValidParanthesesTest();
+	MergeTwoSortedListsTest();
 	return 0;			
 }
