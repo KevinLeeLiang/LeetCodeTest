@@ -398,6 +398,98 @@ void RemoveNthNodeFromEndOfListTest() {
 	std::cout << "Linked list after modification: \n";
 	display(head);
 }
+/**
+20.Valid Parantheses
+题⽬
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
+valid.
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
+Example 1:
+	Input: "()"
+	Output: true
+Example 2:
+	Input: "()[]{}"
+	Output: true
+Example 3:
+	Input: "(]"
+	Output: false
+Example 4:
+	Input: "([)]"
+	Output: false
+Example 5:
+	Input: "{[]}"
+	Output: true
+题⽬⼤意
+括号匹配问题。
+解题思路
+遇到左括号就进栈push，遇到右括号并且栈顶为与之对应的左括号，就把栈顶元素出栈。最后看栈⾥⾯
+还有没有其他元素，如果为空，即匹配。
+需要注意，空字符串是满⾜括号匹配的，即输出 true。
+*/
+#include "ValidParatheses/isValid.h"
+void ValidParanthesesTest() {
+	std::string s = "{[]}";
+	bool res = isValid(s);
+	std::string sres = "false";
+	if (res)
+		sres = "true";
+	std::cout << "Input:" << s << std::endl;
+	std::cout << "Output:" << sres << std::endl;
+}
+
+/*
+21.Merge Two Sorted Lists
+题⽬
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing
+together the nodes of the first two lists.
+Example:
+	Input: 1->2->4, 1->3->4
+	Output: 1->1->2->3->4->4
+题⽬⼤意
+合并 2 个有序链表
+解题思路
+按照题意做即可。
+*/
+#include"MergeTwoSortedLists/MergeTwoSortedLists.h"
+void MergeTwoSortedListsTest() {
+	MergeTwoSortedLists::ListNode* l1, *l1_input;
+	l1 = new MergeTwoSortedLists::ListNode();
+	l1->val = 1;
+	l1->next = new MergeTwoSortedLists::ListNode();
+	l1_input = l1;
+	l1 = l1->next;
+	l1->val = 2;
+	l1->next = new MergeTwoSortedLists::ListNode();
+	l1 = l1->next;
+	l1->val = 4;
+	l1->next = nullptr;
+	MergeTwoSortedLists::ListNode* l2, *l2_input;
+	l2 = new MergeTwoSortedLists::ListNode();
+	l2->val = 1;
+	l2->next = new MergeTwoSortedLists::ListNode();
+	l2_input = l2;
+	l2 = l2->next;
+	l2->val = 3;
+	l2->next = new MergeTwoSortedLists::ListNode();
+	l2 = l2->next;
+	l2->val = 4;
+	l2->next = nullptr ;
+
+	MergeTwoSortedLists::ListNode* ptr_res = MergeTowLists(l1_input, l2_input);
+	while (ptr_res != nullptr) {
+		if (ptr_res->next == nullptr) {
+			std::cout << ptr_res->val << std::endl;
+			break;
+		}
+		else {
+			std::cout << ptr_res->val << "->";
+			ptr_res = ptr_res->next;
+		}
+	}
+}
 
 int main() {
 	std::cout << "Hello World!" << std::endl;
@@ -413,6 +505,8 @@ int main() {
 	//ThreeSumClosestTest();
 	//LetterCombinationsOfAPhoneNumberTest();
 	//FourSumTest();
-	RemoveNthNodeFromEndOfListTest();
+	//RemoveNthNodeFromEndOfListTest();
+	//ValidParanthesesTest();
+	MergeTwoSortedListsTest();
 	return 0;			
 }
