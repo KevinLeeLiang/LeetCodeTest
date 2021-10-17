@@ -491,6 +491,40 @@ void MergeTwoSortedListsTest() {
 	}
 }
 
+/*
+题⽬
+Given n pairs of parentheses, write a function to generate all combinations of well-formed
+parentheses.
+For example, given n = 3, a solution set is:
+[
+ "((()))",
+ "(()())",
+ "(())()",
+ "()(())",
+ "()()()"
+]
+题⽬⼤意
+给出 n 代表⽣成括号的对数，请你写出⼀个函数，使其能够⽣成所有可能的并且有效的括号组合。
+解题思路
+这道题乍⼀看需要判断括号是否匹配的问题，如果真的判断了，那时间复杂度就到 O(n * 2^n)了，
+虽然也可以 AC，但是时间复杂度巨⾼。
+这道题实际上不需要判断括号是否匹配的问题。因为在 DFS 回溯的过程中，会让 ( 和 ) 成对的
+匹配上的。
+*/
+#include "GenerateParantheses/GeneratedParanetheses.h"
+void GenerateParaenthesesTest() {
+	std::vector<std::string>res = GenerateParanetheses(2);
+	std::cout << "[" << std::endl;
+	for (size_t i = 0; i < res.size(); i++){
+		std::cout << res.at(i);
+		if (i == res.size() - 1)
+			std::cout << std::endl;
+		else
+			std::cout << "," << std::endl;
+	}
+	std::cout << "]" << std::endl;
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -507,6 +541,7 @@ int main() {
 	//FourSumTest();
 	//RemoveNthNodeFromEndOfListTest();
 	//ValidParanthesesTest();
-	MergeTwoSortedListsTest();
+	//MergeTwoSortedListsTest();
+	GenerateParaenthesesTest();
 	return 0;			
 }
