@@ -57,3 +57,4 @@ The time complexity is not easy to understand for this problem. It rests on unde
 ### [](https://redquark.org/leetcode/0022-generate-parentheses/#space-complexity)Space Complexity
 
 Similar as above logic the total space complexity **_O(4n/(n)\\sqrt(n)(​n))_** for recursive calls and **_O(n)_** for storing the sequence.
+$x^4$
