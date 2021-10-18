@@ -34,7 +34,7 @@ Also, these parentheses can be arranged in any order as long as they are valid. 
 
 ## [](https://redquark.org/leetcode/0022-generate-parentheses/#approach)Approach
 
-This problem description and the analysis above scream **_Recursion_** and yes it’s the right way to solve this problem. The naive approach is to generate all the permutations. All sequence of length `n` is `(` plus all sequences of length `n - 1`. The time complexity of this will be **_O(22n)_** which is quite large.
+This problem description and the analysis above scream **_Recursion_** and yes it’s the right way to solve this problem. The naive approach is to generate all the permutations. All sequence of length `n` is `(` plus all sequences of length `n - 1`. The time complexity of this will be **_$O(2^{2n})$_** which is quite large.
 
 What if we generate only those permutations which we know for sure will be valid? It should reduce the time considerably. We can use **[backtracking](https://www.geeksforgeeks.org/backtracking-introduction/#:~:text=Backtracking%20is%20an%20algorithmic%2Dtechnique,reaching%20any%20level%20of%20the)** for this purpose. There will be three constraints we need to consider here —
 
@@ -52,8 +52,8 @@ To solve this problem, we will follow the below steps -
 
 ### [](https://redquark.org/leetcode/0022-generate-parentheses/#time-complexity)Time Complexity
 
-The time complexity is not easy to understand for this problem. It rests on understanding how many elements are there in the function. This indicates the **nth Catalan** number which is bounded asymptotically by **Cn = 4n/(n(n)\\sqrt(n)(​n))**. Since each valid sequence has maximum `n` steps, therefore, the time complexity will be **_O(4n/(n)\\sqrt(n)(​n))_**.
+The time complexity is not easy to understand for this problem. It rests on understanding how many elements are there in the function. This indicates the **n^th Catalan** number which is bounded asymptotically by **$C_n = 4^n/(n\sqrt(n))$**. Since each valid sequence has maximum `n` steps, therefore, the time complexity will be **_$O(4^n/\sqrt{n})$_**.
 
 ### [](https://redquark.org/leetcode/0022-generate-parentheses/#space-complexity)Space Complexity
 
-Similar as above logic the total space complexity **_O(4n/(n)\\sqrt(n)(​n))_** for recursive calls and **_O(n)_** for storing the sequence.
+Similar as above logic the total space complexity **_$O(4^n/\sqrt{n})$_** for recursive calls and **_O(n)_** for storing the sequence.
