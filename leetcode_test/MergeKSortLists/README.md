@@ -59,33 +59,32 @@ The idea is to insert all the node values from all the **_K_** lists into an arr
 
 > **Pseudo Code**
 
-```java
-ListNode mergeKLists(ListNode[] lists, int k)
-{
-    // x array to store all the values from lists
-    int x[]
-    for(i = 0 to k) 
-    {
-        ListNode temp = lists[i]
-        while(temp is not null)
-       {
-            // append the value of temp to x
-            x.add(temp.val)
-            temp = temp.next
-       }
-    }
-    // sort all the values of x
-    sort(x)
-    // Head node to return
-    ListNode head(-1)
-    ListNode temp = head
-    for(i = 0 to x.size()) {
-        ListNode newVal(x[i])
-        temp.next = newVal
-        temp = temp.next
-    }
-    return head.next
-} 
+```c++
+MergeKSortedLists::ListNode* MergeKList(std::vector<MergeKSortedLists::ListNode*> vec_listnode) {
+	std::vector<int>x;
+	for (int i = 0; i < vec_listnode.size(); i++) {
+		MergeKSortedLists::ListNode* ptr_l1 = vec_listnode.at(i);
+		while (ptr_l1 != nullptr) {
+			x.push_back(ptr_l1->val);
+			ptr_l1 = ptr_l1->next;
+		}
+	}
+	std::sort(x.begin(), x.end());
+	MergeKSortedLists::ListNode* temp = new MergeKSortedLists::ListNode();
+	temp->val = x.at(0);
+	MergeKSortedLists::ListNode* temp2 = new MergeKSortedLists::ListNode();
+	temp->next = temp2;
+	for (int i = 1; i < x.size(); i++) {
+		temp2->val = x.at(i);
+		if (i == x.size() - 1)
+			temp2->next = nullptr;
+		else {
+			temp2->next = new MergeKSortedLists::ListNode();
+			temp2 = temp2->next;
+		}
+	}
+	return temp;
+}
 ```
 
 > **Complexity Analysis**
