@@ -478,7 +478,7 @@ void MergeTwoSortedListsTest() {
 	l2->val = 4;
 	l2->next = nullptr ;
 
-	MergeTwoSortedLists::ListNode* ptr_res = MergeTowLists(l1_input, l2_input);
+	MergeTwoSortedLists::ListNode* ptr_res = MergeTwoLists(l1_input, l2_input);
 	while (ptr_res != nullptr) {
 		if (ptr_res->next == nullptr) {
 			std::cout << ptr_res->val << std::endl;
@@ -524,6 +524,68 @@ void GenerateParaenthesesTest() {
 	}
 	std::cout << "]" << std::endl;
 }
+/*
+23. Merge k Sorted Lists
+题⽬
+Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Example:
+Input:
+[
+ 1->4->5,
+ 1->3->4,
+ 2->6
+]
+Output: 1->1->2->3->4->4->5->6
+*/
+#include"MergeKSortLists/MergeKSortedLists.h"
+void MergeKSortedListsTest() {
+	MergeKSortedLists::ListNode* l1, * l1_input;
+	l1 = new MergeKSortedLists::ListNode();
+	l1->val = 1;
+	l1->next = new MergeKSortedLists::ListNode();
+	l1_input = l1;
+	l1 = l1->next;
+	l1->val = 4;
+	l1->next = new MergeKSortedLists::ListNode();
+	l1 = l1->next;
+	l1->val = 5;
+	l1->next = nullptr;
+	MergeKSortedLists::ListNode* l2, * l2_input;
+	l2 = new MergeKSortedLists::ListNode();
+	l2->val = 1;
+	l2->next = new MergeKSortedLists::ListNode();
+	l2_input = l2;
+	l2 = l2->next;
+	l2->val = 3;
+	l2->next = new MergeKSortedLists::ListNode();
+	l2 = l2->next;
+	l2->val = 4;
+	l2->next = nullptr;
+	MergeKSortedLists::ListNode* l3, * l3_input;
+	l3 = new MergeKSortedLists::ListNode();
+	l3->val = 2;
+	l3->next = new MergeKSortedLists::ListNode();
+	l3_input = l3;
+	l3 = l3->next;
+	l3->val = 6;
+	l3->next = nullptr;
+
+	std::vector<MergeKSortedLists::ListNode*>vec_listnode;
+	vec_listnode.push_back(l1_input);
+	vec_listnode.push_back(l2_input);
+	vec_listnode.push_back(l3_input);
+	MergeKSortedLists::ListNode* ptr_res = MergeKLists(vec_listnode);
+	while (ptr_res != nullptr) {
+		if (ptr_res->next == nullptr) {
+			std::cout << ptr_res->val << std::endl;
+			break;
+		}
+		else {
+			std::cout << ptr_res->val << "->";
+			ptr_res = ptr_res->next;
+		}
+	}
+}
 
 int main() {
 	std::cout << "Hello World!" << std::endl;
@@ -542,6 +604,7 @@ int main() {
 	//RemoveNthNodeFromEndOfListTest();
 	//ValidParanthesesTest();
 	//MergeTwoSortedListsTest();
-	GenerateParaenthesesTest();
+	//GenerateParaenthesesTest();
+	MergeKSortedListsTest();
 	return 0;			
 }
