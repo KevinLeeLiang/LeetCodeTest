@@ -44,7 +44,9 @@ namespace MergeKSortedListsMethod2 {
 		if (k == 0)
 			return head;
 		else {
-			head = vec_listnode.at(0);
+			head = new MergeKSortedLists::ListNode();
+			head->val = vec_listnode.at(0)->val;
+			head->next = vec_listnode.at(0)->next;
 			MergeKSortedLists::ListNode* ref = head;
 
 			while (true) {
