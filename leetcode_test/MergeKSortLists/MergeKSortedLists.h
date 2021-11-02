@@ -75,9 +75,76 @@ namespace MergeKSortedListsMethod2 {
 			ref->next = NULL;
 			return head->next;
 		}
-
 	}
-	
+}
+
+// 3.Maintaining a Priority Queue 
+namespace MergeKSortedListsMethod3 {
+	//int cmp(MergeKSortedLists::ListNode* node1, MergeKSortedLists::ListNode* node2) {
+	//	return node1->val - node2->val;
+	//}
+	//MergeKSortedLists::ListNode* MergeKLists(std::vector<MergeKSortedLists::ListNode*> vec_listnode) {
+	//	// priority Queue Q of type ListNode and comparator cmp
+	//	PriorityQueue Q(cmp);
+
+	//}
+	//ListNode mergeKLists(ListNode[] lists, int k) {
+	//	// priority Queue Q of type ListNode and comparator cmp
+	//	PriorityQueue Q(cmp)
+	//		for (int i = 0 to k) {
+	//			if (lists[i] is not null) {
+	//				Q.add(lists[i])
+	//			}
+	//		}
+	//	ListNode head(0)
+	//		ListNode ref = head
+	//		while (Q is not empty) {
+	//			// fetch first element of queue
+	//			ref.next = q.poll()
+	//				ref = ref.next
+	//				ListNode next = ref.next
+	//				if (next is not null) {
+	//					q.add(next)
+	//				}
+	//		}
+	//	return head.next
+	//}
+}
+
+// 4.Merge lists one by one
+namespace MergeKSortedListsMethod4 {
+	MergeKSortedLists::ListNode* MergeTwoLists(MergeKSortedLists::ListNode* l1, MergeKSortedLists::ListNode* l2) {
+		if (l1 == nullptr) {
+			return l2;
+		}
+		else if (l2 == nullptr) {
+			return l1;
+		}
+		else {
+			if (l1->val < l2->val) {
+				l1->next = MergeTwoLists(l1->next, l2);
+				return l1;
+			}
+			else {
+				l2->next = MergeTwoLists(l1, l2->next);
+				return l2;
+			}
+		}
+	}
+	MergeKSortedLists::ListNode* MergeKLists(std::vector<MergeKSortedLists::ListNode*> vec_listnode) {
+		int k = vec_listnode.size();
+		if (k == 1) {
+			return vec_listnode.at(0);
+		}
+		if (k == 0) {
+			return NULL;
+		}
+		MergeKSortedLists::ListNode* head = MergeTwoLists(vec_listnode.at(0), vec_listnode.at(1));
+		for (size_t i = 2; i < k; i++)
+			head = MergeTwoLists(head, vec_listnode.at(i));
+		
+		return head;
+	}
 }
 
 // 5.Divide and conquer

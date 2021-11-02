@@ -574,7 +574,7 @@ void MergeKSortedListsTest() {
 	vec_listnode.push_back(l1_input);
 	vec_listnode.push_back(l2_input);
 	vec_listnode.push_back(l3_input);
-	MergeKSortedLists::ListNode* ptr_res = MergeKSortedListsMethod2::MergeKLists(vec_listnode);
+	MergeKSortedLists::ListNode* ptr_res = MergeKSortedListsMethod4::MergeKLists(vec_listnode);
 	while (ptr_res != nullptr) {
 		if (ptr_res->next == nullptr) {
 			std::cout << ptr_res->val << std::endl;
