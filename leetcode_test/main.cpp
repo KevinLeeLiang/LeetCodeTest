@@ -587,6 +587,20 @@ void MergeKSortedListsTest() {
 	}
 }
 
+/**
+24.Swap Nodes in Pairs
+题⽬
+Given a linked list, swap every two adjacent nodes and return its head.
+You may not modify the values in the list's nodes, only nodes itself may be changed.
+Example:
+ Given 1->2->3->4, you should return the list as 2->1->4->3.
+题⽬⼤意
+两两相邻的元素，翻转链表
+*/
+void SwapNodesInPairsTest() {
+
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -605,6 +619,6 @@ int main() {
 	//ValidParanthesesTest();
 	//MergeTwoSortedListsTest();
 	//GenerateParaenthesesTest();
-	MergeKSortedListsTest();
+	//MergeKSortedListsTest();
 	return 0;			
 }
