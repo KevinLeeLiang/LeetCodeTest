@@ -597,8 +597,44 @@ Example:
 题⽬⼤意
 两两相邻的元素，翻转链表
 */
+#include "SwapNodesInPairs/SwapNodesInPairs.h"
 void SwapNodesInPairsTest() {
-
+	SwapNodesInPairs::ListNode* l1, * l1_input;
+	l1 = new SwapNodesInPairs::ListNode();
+	l1->val = 1;
+	l1->next = new SwapNodesInPairs::ListNode();
+	l1_input = l1;
+	l1 = l1->next;
+	l1->val = 2;
+	l1->next = new SwapNodesInPairs::ListNode();
+	l1 = l1->next;
+	l1->val = 3;
+	l1->next = new SwapNodesInPairs::ListNode();
+	l1 = l1->next;
+	l1->val = 4;
+	l1->next = NULL;
+	//while (l1_input != nullptr) {
+	//	if (l1_input->next == nullptr) {
+	//		std::cout << l1_input->val << std::endl;
+	//		break;
+	//	}
+	//	else {
+	//		std::cout << l1_input->val << "->";
+	//		l1_input = l1_input->next;
+	//	}
+	//}
+	std::cout << "SwapNodesInPairsMethod1 result" << std::endl;
+	SwapNodesInPairs::ListNode* ptr_res = SwapNodesInPairsMethod1::SwapInPairs(l1_input);
+	while (ptr_res != nullptr) {
+		if (ptr_res->next == nullptr) {
+			std::cout << ptr_res->val << std::endl;
+			break;
+		}
+		else {
+			std::cout << ptr_res->val << "->";
+			ptr_res = ptr_res->next;
+		}
+	}
 }
 
 int main() {
@@ -620,5 +656,6 @@ int main() {
 	//MergeTwoSortedListsTest();
 	//GenerateParaenthesesTest();
 	//MergeKSortedListsTest();
+	SwapNodesInPairsTest();
 	return 0;			
 }
