@@ -624,7 +624,7 @@ void SwapNodesInPairsTest() {
 	//	}
 	//}
 	std::cout << "SwapNodesInPairsMethod1 result" << std::endl;
-	SwapNodesInPairs::ListNode* ptr_res = SwapNodesInPairsMethod1::SwapInPairs(l1_input);
+	SwapNodesInPairs::ListNode* ptr_res = SwapNodesInPairsMethod2::SwapInPairs2(l1_input);
 	while (ptr_res != nullptr) {
 		if (ptr_res->next == nullptr) {
 			std::cout << ptr_res->val << std::endl;
@@ -635,6 +635,7 @@ void SwapNodesInPairsTest() {
 			ptr_res = ptr_res->next;
 		}
 	}
+
 }
 
 int main() {

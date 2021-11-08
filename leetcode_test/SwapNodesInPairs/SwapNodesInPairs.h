@@ -30,3 +30,17 @@ namespace SwapNodesInPairsMethod1 {
     return head;
   }
 }
+
+namespace SwapNodesInPairsMethod2 {
+  SwapNodesInPairs::ListNode* SwapInPairs(SwapNodesInPairs::ListNode* head) {
+    if (head == NULL || head->next == NULL)
+      return head;
+    SwapNodesInPairsMethod1::SwapPairs(head->val, head->next->val);
+    head = SwapInPairs(head->next->next);
+  }
+  SwapNodesInPairs::ListNode* SwapInPairs2(SwapNodesInPairs::ListNode* head) {
+    SwapNodesInPairs::ListNode* ptr = head;
+    SwapNodesInPairs::ListNode* temp =SwapInPairs(ptr);
+    return head;
+  }
+}
