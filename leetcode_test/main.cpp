@@ -637,6 +637,57 @@ void SwapNodesInPairsTest() {
 	}
 
 }
+/*
+25. Reverse Nodes in k-Group
+题⽬
+Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+k is a positive integer and is less than or equal to the length of the linked list. If the number of
+nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+Example:
+  Given this linked list: 1->2->3->4->5
+  For k = 2, you should return: 2->1->4->3->5
+  For k = 3, you should return: 3->2->1->4->5
+Note:
+Only constant extra memory is allowed.
+You may not alter the values in the list's nodes, only nodes itself may be changed.
+题⽬⼤意
+按照每 K 个元素翻转的⽅式翻转链表。如果不满⾜ K 个元素的就不翻转。
+解题思路
+这⼀题是 problem 24 的加强版，problem 24 是两两相邻的元素，翻转链表。⽽ problem 25 要求的
+是 k 个相邻的元素，翻转链表，problem 相当于是 k = 2 的特殊情况。
+*/
+#include "ReverseNodesInKGroup/ReverseNodesInKGroup.h"
+void ReverseNodesInKGroupTest() {
+	ReverseNodesInKGroup::ListNode* l1, * l1_input;
+	l1 = new ReverseNodesInKGroup::ListNode();
+	l1->val = 1;
+	l1->next = new ReverseNodesInKGroup::ListNode();
+	l1_input = l1;
+	l1 = l1->next;
+	l1->val = 2;
+	l1->next = new ReverseNodesInKGroup::ListNode();
+	l1 = l1->next;
+	l1->val = 3;
+	l1->next = new ReverseNodesInKGroup::ListNode();
+	l1 = l1->next;
+	l1->val = 4;
+	l1->next = new ReverseNodesInKGroup::ListNode();
+	l1 = l1->next;
+	l1->val = 5;
+	l1->next = NULL;
+
+	ReverseNodesInKGroup::ListNode* ptr_res = ReverseNodesInKGroupMethod3::reverseKGroup(l1_input,3);
+	while (ptr_res != nullptr) {
+		if (ptr_res->next == nullptr) {
+			std::cout << ptr_res->val << std::endl;
+			break;
+		}
+		else {
+			std::cout << ptr_res->val << "->";
+			ptr_res = ptr_res->next;
+		}
+	}
+}
 
 int main() {
 	std::cout << "Hello World!" << std::endl;
@@ -657,6 +708,7 @@ int main() {
 	//MergeTwoSortedListsTest();
 	//GenerateParaenthesesTest();
 	//MergeKSortedListsTest();
-	SwapNodesInPairsTest();
+	//SwapNodesInPairsTest();
+	ReverseNodesInKGroupTest();
 	return 0;			
 }
