@@ -689,6 +689,43 @@ void ReverseNodesInKGroupTest() {
 	}
 }
 
+#include"RemoveDuplicatesfromSortedArray/RemoveDuplicatedfromSortedArray.h"
+void RemoveDuplicatesfromSortedArrayTest() {
+	RemoveDuplicatesfromSortedArray::ListNode* l1, * l1_input;
+	l1 = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1->val = 0;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1_input = l1;
+	l1 = l1->next;
+	l1->val = 0;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 1;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 1;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 1;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 2;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 2;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 3;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 3;
+	l1->next = new RemoveDuplicatesfromSortedArray::ListNode();
+	l1 = l1->next;
+	l1->val = 4;
+	l1->next = NULL;
+	// TODO:
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -709,6 +746,7 @@ int main() {
 	//GenerateParaenthesesTest();
 	//MergeKSortedListsTest();
 	//SwapNodesInPairsTest();
-	ReverseNodesInKGroupTest();
+	//ReverseNodesInKGroupTest();
+	RemoveDuplicatesfromSortedArrayTest();
 	return 0;			
 }
