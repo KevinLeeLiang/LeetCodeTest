@@ -749,6 +749,18 @@ void RemoveDuplicatesfromSortedArrayTest() {
 	std::cout << std::endl;
 }
 
+#include "RemoveElement/RemoveElement.h"
+void RemoveElementTest() {
+	int arr[] = { 0,1,2,2,3,0,4,2 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	int val = 2;
+	// RemoveElement()return new size of array
+	n = RemoveElement::RemoveElement(arr, n, val);
+	for (size_t i = 0; i < n; i++)
+		std::cout << arr[i] << " ";
+	std::cout << std::endl;
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -770,6 +782,7 @@ int main() {
 	//MergeKSortedListsTest();
 	//SwapNodesInPairsTest();
 	//ReverseNodesInKGroupTest();
-	RemoveDuplicatesfromSortedArrayTest();
+	//RemoveDuplicatesfromSortedArrayTest();
+	RemoveElementTest();
 	return 0;			
 }
