@@ -1014,6 +1014,41 @@ void FindFirstandLastPositionOfElementinSortedArrayTest() {
 		std::cout << res.at(i) << " ";
 	}
 }
+
+/*
+35. Search Insert Position
+题⽬
+Given a sorted array and a target value, return the index if the target is found.If not, return the
+index where it would be if it were inserted in order.
+You may assume no duplicates in the array
+Example 1:
+  Input: [1,3,5,6], 5
+	Output: 2
+Example 2:
+	Input: [1,3,5,6], 2
+	Output: 1
+Example 3:
+	Input: [1,3,5,6], 7
+	Output: 4
+Example 4:
+	Input: [1,3,5,6], 0
+	Output: 0
+题⽬⼤意
+给定⼀个排序数组和⼀个⽬标值，在数组中找到⽬标值，并返回其索引。如果⽬标值不存在于数组中，
+返回它将会被按顺序插⼊的位置。
+你可以假设数组中⽆重复元素。
+解题思路
+给出⼀个已经从⼩到⼤排序后的数组，要求在数组中找到插⼊ target 元素的位置。
+这⼀题是经典的⼆分搜索的变种题，在有序数组中找到最后⼀个⽐ target ⼩的元素。
+*/
+#include "SearchInsertPostion/search_insert_position.h"
+void SearchInsertPositionTest() {
+	std::vector<int>arr = { 1, 3, 5, 6 }; 
+	int n = sizeof(arr) / sizeof(arr[0]); 
+	int k = 7;
+	std::cout << SearchInsertPosition::SearchInsertPosition(arr, k) << std::endl;
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -1041,6 +1076,7 @@ int main() {
 	//DivideTwoIntergersTest();
 	//SubstringWithConcatenationOfAllWordsTest();
 	//SearchInRotatoedSortedArrayTest();
-	FindFirstandLastPositionOfElementinSortedArrayTest();
+	//FindFirstandLastPositionOfElementinSortedArrayTest();
+	SearchInsertPositionTest();
 	return 0;			
 }
