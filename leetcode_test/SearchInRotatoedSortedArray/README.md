@@ -1,4 +1,4 @@
-﻿# 33. Search in Rotated Sorted Array
+﻿# 33. Search in Rotatoed Sorted Array
 
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
@@ -12,12 +12,12 @@ Your algorithm's runtime complexity must be in the order of _O_(log _n_).
 
 ****Example 1:****
 ```
-Input: nums = \[`4,5,6,7,0,1,2]`, target = 0
+Input: nums = [4,5,6,7,0,1,2], target = 0
 Output: 4
 ```
 ****Example 2:****
 ```
-Input: nums = \[`4,5,6,7,0,1,2]`, target = 3
+Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1
 ```
 这道题让在旋转数组中搜索一个给定值，若存在返回坐标，若不存在返回 -1。我们还是考虑二分搜索法，但是这道题的难点在于不知道原数组在哪旋转了，还是用题目中给的例子来分析，对于数组 \[0 1 2 4 5 6 7\] 共有下列七种旋转方法（红色表示中点之前或者之后一定为有序的）：
