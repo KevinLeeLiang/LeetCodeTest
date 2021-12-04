@@ -1143,6 +1143,47 @@ void ValidSudokuTest() {
 	}
 }
 
+/*
+37. Sudoku Solver
+题⽬
+Write a program to solve a Sudoku puzzle by filling the empty cells.
+A sudoku solution must satisfy all of the following rules:
+1. Each of the digits 1-9 must occur exactly once in each row.
+2. Each of the digits 1-9 must occur exactly once in each column.
+3. Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the
+grid.
+Empty cells are indicated by the character '.' .
+*/
+#include "SudokuSolver/sudoku_solver.h"
+void SudokuSolverTest() {	 
+
+	std::vector<std::vector<int>> grid = {
+		{6,5,0,8,7,3,0,9,0},
+		{0,0,3,2,5,0,0,0,8},
+		{9,8,0,1,0,4,3,5,7},
+		{1,0,5,0,0,0,0,0,0},
+		{4,0,0,0,0,0,0,0,2},
+		{0,0,0,0,0,0,5,0,3},
+		{5,7,8,3,0,1,0,2,6},
+		{2,0,0,0,4,8,9,0,0},
+		{0,9,0,6,2,5,0,8,1}
+	};
+	std::vector<std::vector<int>> grid1 = {
+		{1,0,0,8,7,3,0,9,0},
+		{0,0,3,2,5,0,0,0,8},
+		{0,0,0,1,0,4,3,5,7},
+		{0,0,5,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,2},
+		{0,0,0,0,0,0,5,0,3},
+		{0,0,8,3,0,1,0,2,6},
+		{0,0,0,0,4,8,9,0,0},
+		{0,0,0,6,2,5,0,8,1}
+	};
+	if (SudokuSolver::solveSudoku(grid1)) {
+		SudokuSolver::sudokuGrid();
+	};
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -1172,6 +1213,7 @@ int main() {
 	//SearchInRotatoedSortedArrayTest();
 	//FindFirstandLastPositionOfElementinSortedArrayTest();
 	//SearchInsertPositionTest();
-	ValidSudokuTest();
+	//ValidSudokuTest();				 
+	SudokuSolverTest();
 	return 0;			
 }
