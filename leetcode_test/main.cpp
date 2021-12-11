@@ -1199,6 +1199,20 @@ void SudokuSolverTest() {
 	};
 }
 
+#include"CombinationSum/CombinationSum.h"
+void CombinationSumTest() {
+	std::vector<int>candidates = { 2,3,6,7 };
+	int target = 8;
+	std::vector<std::vector<int>>res = CombinationSum::CombinationSum(candidates, target);
+	for (int i = 0; i < res.size(); i++) {
+		std::cout << "[ ";
+		for (int j = 0; j < res.at(i).size(); j++) {
+			std::cout << res.at(i).at(j) << " ";
+		}
+		std::cout << " ]" << std::endl;
+	}
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TwoSumTest();
@@ -1229,6 +1243,7 @@ int main() {
 	//FindFirstandLastPositionOfElementinSortedArrayTest();
 	//SearchInsertPositionTest();
 	//ValidSudokuTest();				 
-	SudokuSolverTest();
+	//SudokuSolverTest();
+	CombinationSumTest();
 	return 0;			
 }
