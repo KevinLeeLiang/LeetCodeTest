@@ -1343,6 +1343,8 @@ void TrappingRainWaterTest() {
 
 	std::cout << TrappingRainWater::TrappingRainWaterMethod1(arr, n) << std::endl;
 	std::cout << TrappingRainWater::TrappingRainWaterMethod2(arr, n) << std::endl;
+	std::cout << TrappingRainWater::TrappingRainWaterMethod3(arr, n) << std::endl;
+	std::cout << TrappingRainWater::TrappingRainWaterMethod5(arr, n) << std::endl;
 }
 
 int main() {
