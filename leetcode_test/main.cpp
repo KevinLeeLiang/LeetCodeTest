@@ -1199,6 +1199,48 @@ void SudokuSolverTest() {
 	};
 }
 
+/*
+# 39. Combination Sum
+## 题⽬
+Given a **set** of candidate numbers ( candidates ) (**without duplicates**) and a target number
+( target ), find all unique combinations in candidates where the candidate numbers sums to
+target .
+
+The **same** repeated number may be chosen from candidates unlimited number of times.
+
+**Note:**
+- All numbers (including target ) will be positive integers.
+- The solution set must not contain duplicate combinations.
+
+**Example 1:**
+```
+Input: candidates = [2,3,6,7], target = 7,
+A solution set is:
+[
+ [7],
+ [2,2,3]
+]
+```
+**Example 2:**
+```
+Input: candidates = [2,3,5], target = 8,
+A solution set is:
+[
+ [2,2,2,2],
+ [2,3,3],
+ [3,5]
+]
+```
+## 题⽬⼤意
+给定⼀个⽆重复元素的数组 candidates 和⼀个⽬标数 target ，找出 candidates 中所有可以使数字和
+为 target 的组合。
+
+candidates 中的数字可以⽆限制重复被选取。
+
+## 解题思路
+- 题⽬要求出总和为 sum 的所有组合，组合需要去重。
+- 这⼀题和第 47 题类似，只不过元素可以反复使⽤。
+*/
 #include"CombinationSum/CombinationSum.h"
 void CombinationSumTest() {
 	std::vector<int>candidates = { 2,3,6,7 };
@@ -1211,6 +1253,86 @@ void CombinationSumTest() {
 		}
 		std::cout << " ]" << std::endl;
 	}
+}
+
+/*
+40. Combination Sum II
+题⽬
+Given a collection of candidate numbers ( candidates ) and a target number ( target ), find all
+unique combinations in candidates where the candidate numbers sums to target .
+Each number in candidates may only be used once in the combination.
+Note:
+All numbers (including target ) will be positive integers.
+The solution set must not contain duplicate combinations.
+Example 1:
+Input: candidates = [10,1,2,7,6,1,5], target = 8,
+A solution set is:
+[
+ [1, 7],
+ [1, 2, 5],
+ [2, 6],
+ [1, 1, 6]
+]
+Example 2:
+Input: candidates = [2,5,2,1,2], target = 5,
+A solution set is:
+[
+ [1,2,2],
+ [5]
+]
+题目大意
+给定⼀个数组 candidates 和⼀个⽬标数 target ，找出 candidates 中所有可以使数字和为 target 的组
+合。
+candidates 中的每个数字在每个组合中只能使⽤⼀次。
+解题思路
+题⽬要求出总和为 sum 的所有组合，组合需要去重。这⼀题是第 39 题的加强版，第 39 题中元素
+可以重复利⽤(重复元素可⽆限次使⽤)，这⼀题中元素只能有限次数的利⽤，因为存在重复元素，
+并且每个元素只能⽤⼀次(重复元素只能使⽤有限次)
+这⼀题和第 47 题类似，只不过元素可以反复使⽤。
+*/
+void CombinationSum2Test() {
+	std::vector<int>candidates = { 10,1,2,7,6,1,5 };
+	int target = 8;
+	std::vector<std::vector<int>>res = CombinationSum::CombinationSum2(candidates, target);
+	for (int i = 0; i < res.size(); i++) {
+		std::cout << "[ ";
+		for (int j = 0; j < res.at(i).size(); j++) {
+			std::cout << res.at(i).at(j) << " ";
+		}
+		std::cout << " ]" << std::endl;
+	}
+}
+
+/*
+# 41.First Missing Possitive
+## 题目
+Give an unsorted integer array, find the smallest missing positive integer
+**Example 1**
+```
+Input: [1,2,0]
+Output: 3
+```
+**Example 2**
+```
+Input: [3,4,-1,1]
+Output: 2
+```
+**Example 2**
+```
+Input: [7,8,9,11,12]
+Output:	1
+```
+**Note:**
+You algorithm should run in O(n) time and uses constant extra space
+### 题目大意
+找到确实的第一个正整数
+### 解题思路
+为了减少时间复杂度，可以把input数组都装到map中，然后i循环从1开始，一次对比map中是否存在i，只要不存在i就立即返回结果，即为所求
+*/
+#include"FirstMissingPositive/first_missing_positive.h"
+void FirstMissingPositiveTest() {
+	std::vector<int>nums = { 2, 3, 1,5,-6 };
+	std::cout << FirstMissingPositive::FirstMissingPositive(nums) << std::endl;
 }
 
 int main() {
@@ -1244,6 +1366,8 @@ int main() {
 	//SearchInsertPositionTest();
 	//ValidSudokuTest();				 
 	//SudokuSolverTest();
-	CombinationSumTest();
+	//CombinationSumTest();
+	//CombinationSum2Test();
+	FirstMissingPositiveTest();
 	return 0;			
 }
