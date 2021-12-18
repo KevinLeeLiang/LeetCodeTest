@@ -1335,8 +1335,19 @@ void FirstMissingPositiveTest() {
 	std::cout << FirstMissingPositive::FirstMissingPositive(nums) << std::endl;
 }
 
+#include"TrappingRainWater/TrappingRainWater.h"
+void TrappingRainWaterTest() {
+	int arr[] = { 0, 1, 0, 2, 1, 0,
+									1, 3, 2, 1, 2, 1 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	std::cout << TrappingRainWater::TrappingRainWaterMethod1(arr, n) << std::endl;
+	std::cout << TrappingRainWater::TrappingRainWaterMethod2(arr, n) << std::endl;
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
+	TrappingRainWaterTest();
 	//TwoSumTest();
 	//AddTwoNumbersTest();
 	//LongestSubstringWithoutRepeatingCharactersTest();
@@ -1368,6 +1379,6 @@ int main() {
 	//SudokuSolverTest();
 	//CombinationSumTest();
 	//CombinationSum2Test();
-	FirstMissingPositiveTest();
+	//FirstMissingPositiveTest();
 	return 0;			
 }

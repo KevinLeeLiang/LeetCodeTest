@@ -28,6 +28,5 @@ namespace FirstMissingPositive {
         return k + 1;
     }
      return N + 1;
-
 	}
 }
