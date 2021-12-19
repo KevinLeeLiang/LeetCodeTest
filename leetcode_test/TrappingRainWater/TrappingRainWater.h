@@ -1,5 +1,5 @@
 #pragma once
-
+#include <stack>
 namespace TrappingRainWater {
 	int TrappingRainWaterMethod1(int arr[], int n) {
     // To store the maximum water
@@ -150,54 +150,55 @@ namespace TrappingRainWater {
     // Return the maximum water
     return water;
   }    
-  //int TrappingRainWaterMethod4(int height[], int n) {
+
+  int TrappingRainWaterMethod4(int height[], int n) {
     // Stores the indices of the bars
-//    std::vector<int> st;
-//
-//    // Stores the final result
-//    int ans = 0;
-//
-//    // Loop through the each bar
-//    for (int i = 0; i < n; i++)
-//    {
-//
-//      // Remove bars from the stack
-//      // until the condition holds
-//      while ((!st.empty()) &&
-//        (height[st.top()] < height[i]))
-//      {
-//
-//        // Store the height of the top
-//        // and pop it.
-//        int pop_height = height[st.top()];
-//        st.pop();
-//
-//        // If the stack does not have any
-//        // bars or the the popped bar
-//        // has no left boundary
-//        if (st.empty())
-//          break;
-//
-//        // Get the distance between the
-//        // left and right boundary of
-//        // popped bar
-//        int distance = i - st.top() - 1;
-//
-//        // Calculate the min. height
-//        int min_height = std::min(height[st.top()],
-//          height[i]) -
-//          pop_height;
-//
-//        ans += distance * min_height;
-//      }
-//
-//      // If the stack is either empty or
-//      // height of the current bar is less than
-//      // or equal to the top bar of stack
-//      st.push(i);
-//    }
-//    return ans;
-//  }
+    std::stack<int> st;
+
+    // Stores the final result
+    int ans = 0;
+
+    // Loop through the each bar
+    for (int i = 0; i < n; i++)
+    {
+
+      // Remove bars from the stack
+      // until the condition holds
+      while ((!st.empty()) &&
+        (height[st.top()] < height[i]))
+      {
+
+        // Store the height of the top
+        // and pop it.
+        int pop_height = height[st.top()];
+        st.pop();
+
+        // If the stack does not have any
+        // bars or the the popped bar
+        // has no left boundary
+        if (st.empty())
+          break;
+
+        // Get the distance between the
+        // left and right boundary of
+        // popped bar
+        int distance = i - st.top() - 1;
+
+        // Calculate the min. height
+        int min_height = std::min(height[st.top()],
+          height[i]) -
+          pop_height;
+
+        ans += distance * min_height;
+      }
+
+      // If the stack is either empty or
+      // height of the current bar is less than
+      // or equal to the top bar of stack
+      st.push(i);
+    }
+    return ans;
+  }
   int TrappingRainWaterMethod5(int arr[], int n) {
     // indices to traverse the array
     int left = 0;
