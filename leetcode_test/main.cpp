@@ -1335,6 +1335,30 @@ void FirstMissingPositiveTest() {
 	std::cout << FirstMissingPositive::FirstMissingPositive(nums) << std::endl;
 }
 
+/*
+# Trapping Rain Water
+
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+
+**Examples**:  
+**Input:** arr\[\]   = {2, 0, 2}
+**Output:** 2
+
+We can trap 2 units of water in the middle gap.
+
+**Input:** arr\[\]   = {3, 0, 2, 0, 4}
+**Output:** 7
+
+We can trap "3 units" of water between 3 and 2,
+"1 unit" on top of bar 2 and "3 units" between 2
+and 4.  See below diagram also.
+
+**Input:** arr\[\] = \[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1\]
+**Output:** 6
+
+**Explanation:**
+The structure is like below
+*/
 #include"TrappingRainWater/TrappingRainWater.h"
 void TrappingRainWaterTest() {
 	int arr[] = { 0, 1, 0, 2, 1, 0,
