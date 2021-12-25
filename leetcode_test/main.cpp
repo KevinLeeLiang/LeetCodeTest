@@ -1372,9 +1372,34 @@ void TrappingRainWaterTest() {
 	std::cout << TrappingRainWater::TrappingRainWaterMethod5(arr, n) << std::endl;
 }
 
+#include"Permutations/permutations.h"
+void PermutationsTest() {
+	std::vector<int>nums = { 1,2,3 };
+	std::cout << "Input: [";
+	for (int i = 0; i < nums.size(); i++) {
+		if (i == nums.size() - 1)
+			std::cout << nums.at(i) << "]" << std::endl;
+		else
+			std::cout << nums.at(i) << ",";
+	}
+	std::vector<std::vector<int >>res = Permutations::Permutations(nums);
+	std::cout << "Output: " << std::endl;
+	std::cout << "[" << std::endl;
+	for (int i = 0; i < res.size(); i++) {
+		std::cout << "[ ";
+		for (int j = 0; j < res.at(i).size(); j++) {
+			if (j == res.at(i).size() - 1) {
+				std::cout << res.at(i).at(j) << " ]" <<  std::endl;
+			}
+			else
+				std::cout << res.at(i).at(j) << ", ";
+		}
+	}
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
-	TrappingRainWaterTest();
+	//TrappingRainWaterTest();
 	//TwoSumTest();
 	//AddTwoNumbersTest();
 	//LongestSubstringWithoutRepeatingCharactersTest();
@@ -1407,5 +1432,6 @@ int main() {
 	//CombinationSumTest();
 	//CombinationSum2Test();
 	//FirstMissingPositiveTest();
+	PermutationsTest();
 	return 0;			
 }
