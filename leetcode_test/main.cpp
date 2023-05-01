@@ -1397,6 +1397,31 @@ void PermutationsTest() {
 	}
 }
 
+// # 48.Rotate Image
+#include"RotatoImage/RotatoImage.h"
+void RotatoImageTest() {
+	std::vector<std::vector<int>>image;
+	image.resize(3);
+	for (int i = 0; i < image.size(); i++) {
+		image.at(i).resize(3);
+		for (int j = 0; j < image.at(i).size(); j++) {
+			image.at(i).at(j) = i * image.size() + j+1;
+		}
+	}
+	auto res = RotatoImage::RotatoImage(image);
+	for (size_t i = 0; i < res.size(); i++){
+		for (size_t j = 0; j < res.at(i).size(); j++){
+			if (j < res.at(i).size() - 1) {
+				std::cout << res.at(i).at(j) << ",";
+			}
+			else {
+				std::cout << res.at(i).at(j);
+			}
+		}
+		std::cout << std::endl;
+	}
+}
+
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TrappingRainWaterTest();
@@ -1432,6 +1457,7 @@ int main() {
 	//CombinationSumTest();
 	//CombinationSum2Test();
 	//FirstMissingPositiveTest();
-	PermutationsTest();
+//	PermutationsTest();
+	RotatoImageTest();
 	return 0;			
 }
