@@ -15,7 +15,7 @@ namespace RotatoImage {
 		std::vector<std::vector<int>>	 res;
 		res = image;
 		for (int i = 0; i < res.size(); i++) {
-			std::reverse(res.at(i).begin(), res.at(i).end());
+			std::reverse(res.at(i).begin(),res.at(i).end());
 		}
 		for (int i = 0; i < res.size(); ++i) {
 			for (int j = i + 1; j < res[i].size(); ++j)

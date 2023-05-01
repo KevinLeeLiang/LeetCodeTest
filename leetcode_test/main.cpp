@@ -1397,7 +1397,47 @@ void PermutationsTest() {
 	}
 }
 
-// # 48.Rotate Image
+/*
+# 48. Rotate Image
+## 题⽬
+You are given an n x n 2D matrix representing an image.
+Rotate the image by 90 degrees(clockwise).
+### Note:
+You have to rotate the image in - place, which means you have to modify the input 2D matrix
+directly. * *DO NOT * *allocate another 2D matrix and do the rotation.
+### Example 1:
+```
+Given input matrix =
+[
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9]
+],
+rotate the input matrix in - place such that it becomes :
+[
+	[7, 4, 1],
+	[8, 5, 2],
+	[9, 6, 3]
+]
+```
+### Example 2:
+```
+Given input matrix =
+[
+	[ 5, 1, 9, 11],
+	[2, 4, 8, 10],
+	[13, 3, 6, 7],
+	[15, 14, 12, 16]
+],
+rotate the input matrix in - place such that it becomes :
+[
+	[15, 13, 2, 5],
+	[14, 3, 4, 1],
+	[12, 6, 8, 9],
+	[16, 7, 10, 11]
+]
+```
+*/
 #include"RotatoImage/RotatoImage.h"
 void RotatoImageTest() {
 	std::vector<std::vector<int>>image;
@@ -1420,6 +1460,28 @@ void RotatoImageTest() {
 		}
 		std::cout << std::endl;
 	}
+}
+
+#include"GroupAnagrams/GroupAnagrams.h"
+void GroupAnagramsTest() {
+
+	std::vector<std::string> input = { "eat", "tea", "tan", "ate", "nat", "bat" };
+	auto res = GroupAnagrams::GroupAnagrams(input);
+	std::map<std::string, std::vector<std::string>>::iterator it = res.begin();
+	for (it; it!= res.end(); it++)
+	{
+		auto tmp = it->second;
+		for (int i = 0; i < tmp.size(); i++) {
+			if (i < tmp.size() - 1) {
+				std::cout << tmp.at(i) << ",";
+			}
+			else {
+				std::cout << tmp.at(i);
+			}												 	
+		}	
+		std::cout << std::endl;
+	}
+
 }
 
 int main() {
@@ -1458,6 +1520,7 @@ int main() {
 	//CombinationSum2Test();
 	//FirstMissingPositiveTest();
 //	PermutationsTest();
-	RotatoImageTest();
+	//RotatoImageTest();
+	GroupAnagramsTest();
 	return 0;			
 }
