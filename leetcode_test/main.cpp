@@ -1462,6 +1462,24 @@ void RotatoImageTest() {
 	}
 }
 
+/*
+* # 49. Group Anagrams
+## 题⽬
+Given an array of strings, group anagrams together.
+### Example:
+```
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+ ["ate","eat","tea"],
+ ["nat","tan"],
+ ["bat"]
+]
+```
+### Note:
+* All inputs will be in lowercase.
+* The order of your output does not matter.
+*/
 #include"GroupAnagrams/GroupAnagrams.h"
 void GroupAnagramsTest() {
 
@@ -1482,6 +1500,18 @@ void GroupAnagramsTest() {
 		std::cout << std::endl;
 	}
 
+}
+
+#include<Pow/Pow.h>
+void PowTest() {
+	float x;
+	int n;
+	std::cout << "输入x: 按回车键结束" << std::endl;
+	std::cin >> x;
+	std::cout << "输入n: 按回车检结束" << std::endl;
+	std::cin >> n;
+	float res = Pow::Pow(x, n);
+	std::cout << "输出结果：" << res << std::endl;
 }
 
 int main() {
@@ -1521,6 +1551,7 @@ int main() {
 	//FirstMissingPositiveTest();
 //	PermutationsTest();
 	//RotatoImageTest();
-	GroupAnagramsTest();
+	//GroupAnagramsTest();
+	PowTest();
 	return 0;			
 }
