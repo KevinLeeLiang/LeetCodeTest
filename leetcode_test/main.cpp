@@ -1536,8 +1536,31 @@ void PowTest() {
 	float res = Pow::Pow(x, n);
 	std::cout << "输出结果：" << res << std::endl;
 }
+
 /*
-51. N-Queens
+# 51. N-Queens
+## 题⽬
+The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two
+queens attack each other.
+Given an integer n, return all distinct solutions to the n-queens puzzle.
+Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and
+'.' both indicate a queen and an empty space respectively
+### Example:
+```
+Input: 4
+Output: [
+ [".Q..", // Solution 1
+ "...Q",
+ "Q...",
+ "..Q."],
+ ["..Q.", // Solution 2
+ "Q...",
+ "...Q",
+ ".Q.."]
+]
+Explanation: There exist two distinct solutions to the 4-queens puzzle as
+shown above.
+```
 */
 #include"N-Queens/NQueens.h"
 void N_QueensTest() {
@@ -1567,6 +1590,14 @@ void N_QueensTest() {
 	//	}
 	//	std::cout << std::endl;
 	//}
+}
+
+#include"MaximumSubarray/MaximumSubarray.h"
+void MaximumSubarrayTest() {
+	std::vector<int>input = { -2, 1, -3, 4, -1, 2, 1,-5, 4 };
+	int index = 0;
+	std::cout << MaximumSubarray::MaximumSubarray(input, index) << std::endl;
+
 }
 int main() {
 	std::cout << "Hello World!" << std::endl;
@@ -1607,6 +1638,8 @@ int main() {
 	//RotatoImageTest();
 	//GroupAnagramsTest();
 	//PowTest();
-	N_QueensTest();
+	//N_QueensTest();
+	MaximumSubarrayTest();
+
 	return 0;			
 }
