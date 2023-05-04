@@ -1501,7 +1501,30 @@ void GroupAnagramsTest() {
 	}
 
 }
-
+/*
+# 50. Pow(x, n)
+## 题⽬
+Implement pow(x, n), which calculates x raised to the power n (xn).
+### Example 1:
+```
+Input: 2.00000, 10
+Output: 1024.00000
+```
+### Example 2:
+```
+Input: 2.10000, 3
+Output: 9.26100
+```
+### Example 3:
+```
+Input: 2.00000, -2
+Output: 0.25000
+Explanation: 2-2 = 1/22 = 1/4 = 0.25
+```
+### Note:
+* -100.0 < x < 100.0
+* `n` is a 32-bit signed integer, within the range [−2^31, 2^31− 1]
+ */
 #include<Pow/Pow.h>
 void PowTest() {
 	float x;
@@ -1513,7 +1536,38 @@ void PowTest() {
 	float res = Pow::Pow(x, n);
 	std::cout << "输出结果：" << res << std::endl;
 }
-
+/*
+51. N-Queens
+*/
+#include"N-Queens/NQueens.h"
+void N_QueensTest() {
+	int n;
+	std::cout << "输入皇后个数" << std::endl;
+	std::cin >> n;
+	NQueens::NQueens(n);
+	//std::vector<std::vector<std::string>>	path;
+	//std::vector<bool>col, dg, udg;
+	//col.resize(n);
+	//dg.resize(2 * n);
+	//udg.resize(2 * n);
+	//path.resize(2 * n);
+	//for (int i = 0; i < n; i++) {
+	//	path.at(i).resize(n);
+	//	for (size_t j = 0; j < n; j++) {
+	//		path.at(i).at(j) = '.';
+	//	}
+	//}
+	//NQueens::dfs(0, n, col, dg, udg, path);
+	//for (size_t i = 0; i < n; i++) {
+	//	for (size_t j = 0; j < n; j++) {
+	//		if (j < n - 1)
+	//			std::cout << path[i][j] << ",";
+	//		else
+	//			std::cout << path[i][j];
+	//	}
+	//	std::cout << std::endl;
+	//}
+}
 int main() {
 	std::cout << "Hello World!" << std::endl;
 	//TrappingRainWaterTest();
@@ -1552,6 +1606,7 @@ int main() {
 //	PermutationsTest();
 	//RotatoImageTest();
 	//GroupAnagramsTest();
-	PowTest();
+	//PowTest();
+	N_QueensTest();
 	return 0;			
 }
