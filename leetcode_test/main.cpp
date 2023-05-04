@@ -1592,12 +1592,46 @@ void N_QueensTest() {
 	//}
 }
 
+/*
+# 53. Maximum Subarray
+## 题⽬
+Given an integer array nums , find the contiguous subarray (containing at least one number)
+which has the largest sum and return its sum.
+### Example:
+```
+Input: [-2,1,-3,4,-1,2,1,-5,4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+```
+### Follow up:
+If you have figured out the O(n) solution, try coding another solution using the divide and
+conquer approach, which is more subtle.
+*/
 #include"MaximumSubarray/MaximumSubarray.h"
 void MaximumSubarrayTest() {
 	std::vector<int>input = { -2, 1, -3, 4, -1, 2, 1,-5, 4 };
 	int index = 0;
 	std::cout << MaximumSubarray::MaximumSubarray(input, index) << std::endl;
 
+}
+
+#include"SpiralMatrix/SpiralMatrix.h"
+void SpiralMatrixTest() {
+	std::vector<std::vector<int>> mat1 = { {1,2,3},{4,5,6},{7,8,9} };
+	std::vector<std::vector<int>> mat2 = { {1,2,3,4},{5,6,7,8},{9,10,11,12} };
+	std::vector<int>res1, res2;
+	res1 = SpiralMatrix::SpiralMatrix(mat1, 3, 3);
+  res2 = SpiralMatrix::SpiralMatrix(mat2, 3, 4);
+	std::cout << "mat1 -> res1" << std::endl;
+	for (int i = 0; i < res1.size(); i++) {
+		std::cout << res1.at(i) << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "mat2 -> res2" << std::endl;
+	for (int i = 0; i < res2.size(); i++) {
+		std::cout << res2.at(i) << " ";
+	}
+	std::cout << std::endl;
 }
 int main() {
 	std::cout << "Hello World!" << std::endl;
@@ -1639,7 +1673,7 @@ int main() {
 	//GroupAnagramsTest();
 	//PowTest();
 	//N_QueensTest();
-	MaximumSubarrayTest();
-
+	//MaximumSubarrayTest();
+	SpiralMatrixTest();
 	return 0;			
 }
